@@ -18,4 +18,6 @@ _ReSharper*/
 2DShooter/*.csproj
 2DShooter/*.pidb
 2DShooter/*.sln
+2DShooter/*.suo
 2DShooter/build
+2DShooter/obj/
