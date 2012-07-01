@@ -1,5 +1,7 @@
 # Unity3D .gitignore file.
 #     Store this file at the root of your local repository.
+[Rr]elease*/
+_ReSharper*/
 .DS_Store
 2DShooter/Library/AssetImportState
 2DShooter/Library/AssetServerCacheV3
