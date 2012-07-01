@@ -12,11 +12,7 @@ public class Enemy : MonoBehaviour
     // Use this for initialization
     private void Start()
     {
-        currentSpeed = Random.Range(MinSpeed, MaxSpeed);
-
-        x = Random.Range(-6f, 6f);
-        y = 7.0f;
-        z = 0.0f;
+        SetPositionAndSpeed();
     }
 
     // Update is called once per frame
@@ -27,9 +23,20 @@ public class Enemy : MonoBehaviour
 
         if(transform.position.y <= -5f)
         {
-            currentSpeed = Random.Range(MinSpeed, MaxSpeed);
-            x = Random.Range(-6f, 6f);
-            transform.position = new Vector3(x, y, z);
+            SetPositionAndSpeed();
         }
     }
+
+
+    public void SetPositionAndSpeed()
+    {
+        currentSpeed = Random.Range(MinSpeed, MaxSpeed);
+        
+        x = Random.Range(-6f, 6f);
+        y = 7.0f;
+        z = 0.0f;
+
+        transform.position = new Vector3(x, y, z);
+    }
+
 }

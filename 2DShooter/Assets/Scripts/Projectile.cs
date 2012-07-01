@@ -20,4 +20,14 @@ public class Projectile : MonoBehaviour
         if(transform.position.y > 6.4f)
             Destroy(gameObject);
 	}
+
+    void OnTriggerEnter(Collider otherObject)
+    {
+        if(otherObject.tag == "Enemy")
+        {
+            var enemy = (Enemy) otherObject.gameObject.GetComponent("Enemy");
+            enemy.SetPositionAndSpeed();
+            Destroy(gameObject);
+        }
+    }
 }
