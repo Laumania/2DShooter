@@ -4,6 +4,7 @@ using System.Collections;
 public class Projectile : MonoBehaviour
 {
     public float ProjectileSpeed;
+    public GameObject ExplosionPrefab;
 
 	// Use this for initialization
 	void Start () 
@@ -26,6 +27,8 @@ public class Projectile : MonoBehaviour
         if(otherObject.tag == "Enemy")
         {
             var enemy = (Enemy) otherObject.gameObject.GetComponent("Enemy");
+            Instantiate(ExplosionPrefab, enemy.transform.position, enemy.transform.rotation);
+            
             enemy.SetPositionAndSpeed();
             Destroy(gameObject);
         }
