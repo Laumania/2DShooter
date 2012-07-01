@@ -15,7 +15,7 @@ public class Projectile : MonoBehaviour
 	void Update ()
 	{
 	    float amtToMove = ProjectileSpeed*Time.deltaTime;
-        transform.Translate(Vector3.up * amtToMove);
+        transform.Translate(Vector3.up * amtToMove, Space.World);
 
         if(transform.position.y > 6.4f)
             Destroy(gameObject);
