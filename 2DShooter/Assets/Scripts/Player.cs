@@ -56,8 +56,16 @@ public class Player : MonoBehaviour
 
         gameObject.renderer.enabled = false;
         transform.position = new Vector3(0f, transform.position.y, transform.position.z);
-        yield return new WaitForSeconds(1.5f);
-        gameObject.renderer.enabled = true;
+        yield return new WaitForSeconds(3f);
+
+        if (Player.Lives > 0)
+        {
+            gameObject.renderer.enabled = true;
+        }
+        else
+        {
+            Application.LoadLevel("Lose");
+        }
     }
 
     void OnGUI()
