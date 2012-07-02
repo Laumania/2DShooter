@@ -3,31 +3,17 @@ using System.Collections;
 
 public class MainMenu : MonoBehaviour 
 {
-    private string _instructionText = "Instructions:\nPress Left and Right arrows to move.\nPress Space to fire";
-    private int _buttonWidth = 200;
-    private int _buttonHeight = 50;
+    public Texture BackgroundTexture;
 
-	// Use this for initialization
-	void Start () 
-    {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () 
-    {
-	    
-	}
+    private string _instructionText = "Instructions:\nPress Left and Right arrows to move.\nPress Space to fire";
 
     void OnGUI()
     {
+        GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), BackgroundTexture);
+
         GUI.Label(new Rect(10, 10, 250, 200), _instructionText);
 
-        if (GUI.Button(new Rect(Screen.width / 2 - _buttonWidth / 2,
-                            Screen.height / 2 - _buttonHeight / 2,
-                            _buttonWidth,
-                            _buttonHeight),
-                            "Start"))
+        if(Input.anyKeyDown)
         {
             Application.LoadLevel("Level1");
         }
