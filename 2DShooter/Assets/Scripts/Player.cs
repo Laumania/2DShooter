@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
 
     public static int Score = 0;
     public static int Lives = 3;
+    public static int Missed = 0;
 	
 	// Update is called once per frame
 	void Update () 
@@ -44,17 +45,25 @@ public class Player : MonoBehaviour
             Enemy enemy = (Enemy)otherObject.gameObject.GetComponent("Enemy");
             enemy.SetPositionAndSpeed();
 
-            Instantiate(ExplosionPrefab, transform.position, transform.rotation);
-
-            //Destroy(gameObject);
+            StartCoroutine(DestroyShip());
         }
+    }
+
+    IEnumerator DestroyShip()
+    {
+        var expPrefab = Instantiate(ExplosionPrefab, transform.position, transform.rotation);
+        Destroy(expPrefab, 2f);
+
+        gameObject.renderer.enabled = false;
+        transform.position = new Vector3(0f, transform.position.y, transform.position.z);
+        yield return new WaitForSeconds(1.5f);
+        gameObject.renderer.enabled = true;
     }
 
     void OnGUI()
     {
         GUI.Label(new Rect(10, 10, 120, 20), "Score: " + Player.Score.ToString());
         GUI.Label(new Rect(10, 30, 60, 20), "Lives: " + Player.Lives.ToString());
+        GUI.Label(new Rect(10, 50, 60, 20), "Missed: " + Player.Missed.ToString());
     }
-
-    
 }

@@ -27,10 +27,11 @@ public class Projectile : MonoBehaviour
         if(otherObject.tag == "Enemy")
         {
             var enemy = (Enemy) otherObject.gameObject.GetComponent("Enemy");
-            Instantiate(ExplosionPrefab, enemy.transform.position, enemy.transform.rotation);
+            var expPrefab = Instantiate(ExplosionPrefab, enemy.transform.position, enemy.transform.rotation);
             
             enemy.SetPositionAndSpeed();
             Destroy(gameObject);
+            Destroy(expPrefab, 2f);
             Player.Score += 100;
         }
     }

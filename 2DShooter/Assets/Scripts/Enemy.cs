@@ -24,6 +24,7 @@ public class Enemy : MonoBehaviour
         if(transform.position.y <= -5f)
         {
             SetPositionAndSpeed();
+            Player.Missed++;
         }
     }
 
