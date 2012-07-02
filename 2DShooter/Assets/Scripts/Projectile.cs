@@ -27,7 +27,7 @@ public class Projectile : MonoBehaviour
         if(otherObject.tag == "Enemy")
         {
             var enemy = (Enemy) otherObject.gameObject.GetComponent("Enemy");
-            var expPrefab = Instantiate(ExplosionPrefab, enemy.transform.position, enemy.transform.rotation);
+            var expPrefab = Instantiate(ExplosionPrefab, enemy.transform.position, Quaternion.identity);
             
             enemy.SetPositionAndSpeed();
             Destroy(gameObject);
