@@ -31,6 +31,7 @@ public class Projectile : MonoBehaviour
             
             enemy.SetPositionAndSpeed();
             Destroy(gameObject);
+            Player.Score += 100;
         }
     }
 }
