@@ -10,7 +10,9 @@ public class Player : MonoBehaviour
     public static int Score = 0;
     public static int Lives = 3;
     public static int Missed = 0;
-	
+
+    private float ProjectileOffset = 1.5f;
+
 	// Update is called once per frame
 	void Update () 
 	{
@@ -30,7 +32,7 @@ public class Player : MonoBehaviour
 	    if (Input.GetKeyDown("space"))
 	    {
             var projectilePosition = new Vector3(transform.position.x,
-                                                 transform.position.y + (transform.localScale.y / 2),
+                                                 transform.position.y + ProjectileOffset,
                                                  transform.position.z);
             Instantiate(ProjectilePrefab, projectilePosition, Quaternion.identity);
 	    }
