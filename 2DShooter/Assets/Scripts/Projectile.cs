@@ -34,10 +34,10 @@ public class Projectile : MonoBehaviour
             Destroy(expPrefab, 2f);
             Player.Score += 100;
 
-            if (Player.Score >= 1000)
+            /*if (Player.Score >= 10000)
             {
                 Application.LoadLevel("Win");
-            }
+            }*/
         }
     }
 }

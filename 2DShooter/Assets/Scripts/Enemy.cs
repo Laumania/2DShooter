@@ -8,8 +8,8 @@ public class Enemy : MonoBehaviour
 
     private float MinRotateSpeed = 60f;
     private float MaxRotateSpeed = 120f;
-    private float MinScale = .8f;
-    private float MaxScale = 2f;
+    private float MinScale = .3f;
+    private float MaxScale = 1f;
 
     private float currentRotationSpeed;
     private float currentScaleX;
