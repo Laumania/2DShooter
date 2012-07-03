@@ -18,7 +18,7 @@ public class Player : MonoBehaviour
     public static int Lives = 3;
     public static int Missed = 0;
 
-    private float ProjectileOffset = 1.5f;
+    private float ProjectileOffset = 1f;
 	private State state = State.Playing;
 	private float shipInvisibleTime = 1.5f;
 	private float shipMoveOnToScreenSpeed = 5f;
@@ -45,10 +45,11 @@ public class Player : MonoBehaviour
 	        else if(transform.position.x >= 7.5f)
 	            transform.position = new Vector3(-7.4f, transform.position.y, transform.position.z);
 			
-			if(transform.position.y < -5f)
-				transform.position = new Vector3(transform.position.x, 6f, transform.position.z);
-			else if(transform.position.y > 6f)
-				transform.position = new Vector3(transform.position.x, -5f, transform.position.z);
+			//Make player stay inside the screen - vertically
+			if(transform.position.y < -4f)
+				transform.position = new Vector3(transform.position.x, -3.95f, transform.position.z);
+			else if(transform.position.y > 5f)
+				transform.position = new Vector3(transform.position.x, 4.95f, transform.position.z);
 				
 	
 	        //Fire projectile
