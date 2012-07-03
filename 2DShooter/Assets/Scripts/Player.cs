@@ -60,6 +60,13 @@ public class Player : MonoBehaviour
 	                                                 transform.position.z);
 	            Instantiate(ProjectilePrefab, projectilePosition, Quaternion.identity);
 		    }
+			
+		}
+		
+		//Exit game
+		if(Input.GetKeyDown(KeyCode.Escape))
+		{
+			Application.Quit();	
 		}
 	}
 
