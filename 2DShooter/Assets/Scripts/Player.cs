@@ -59,6 +59,7 @@ public class Player : MonoBehaviour
 	                                                 transform.position.y + ProjectileOffset,
 	                                                 transform.position.z);
 	            Instantiate(ProjectilePrefab, projectilePosition, Quaternion.identity);
+				Instantiate(ProjectilePrefab, projectilePosition, new Quaternion(0f, -1.0f, 0f, 0f));
 		    }
 			
 		}
