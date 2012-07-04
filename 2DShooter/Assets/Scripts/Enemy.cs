@@ -43,6 +43,11 @@ public class Enemy : MonoBehaviour
 
     public void SetPositionAndSpeed()
     {
+		//Increase difficulty
+		MinSpeed *= 1.05f;
+		MaxSpeed *= 1.05f;
+		Debug.Log("MaxSpeed: " +MaxSpeed);
+		
         currentRotationSpeed = Random.Range(MinRotateSpeed, MaxRotateSpeed);
         currentScaleX = Random.Range(MinScale, MaxScale);
         currentScaleY = Random.Range(MinScale, MaxScale);
