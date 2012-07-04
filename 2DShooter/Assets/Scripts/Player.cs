@@ -18,7 +18,7 @@ public class Player : MonoBehaviour
     public static int Lives = 3;
     public static int Missed = 0;
 
-    private float ProjectileOffset = 1f;
+    private float ProjectileOffset = 0.8f;
 	private State state = State.Playing;
 	private float shipInvisibleTime = 1.5f;
 	private float shipMoveOnToScreenSpeed = 5f;
@@ -58,8 +58,8 @@ public class Player : MonoBehaviour
 	            var projectilePosition = new Vector3(transform.position.x,
 	                                                 transform.position.y + ProjectileOffset,
 	                                                 transform.position.z);
-	            Instantiate(ProjectilePrefab, projectilePosition, Quaternion.identity);
-				Instantiate(ProjectilePrefab, projectilePosition, new Quaternion(0f, -1.0f, 0f, 0f));
+	            Instantiate(ProjectilePrefab, new Vector3(projectilePosition.x - 0.2f, projectilePosition.y, projectilePosition.z), Quaternion.identity);
+				Instantiate(ProjectilePrefab, new Vector3(projectilePosition.x + 0.2f, projectilePosition.y, projectilePosition.z), Quaternion.identity);
 		    }
 			
 		}
